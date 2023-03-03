@@ -1,0 +1,22 @@
+#~ Range and angle boundary values
+min_range : 0.5                      #~ choose minimum range
+max_range : 8                        #~ choose maximum range
+
+#min_angle: rad(-155 * pi / 180)      #~ choose minimum angle
+#max_angle: rad(-295 * pi / 180)      #~ choose minimum angle
+min_angle: rad(-100 * pi / 180)      #~ choose minimum angle
+max_angle: rad(-260 * pi / 180)      #~ choose minimum angle
+#max_angle: 1      #~ choose minimum angle
+
+
+#~ Adjust communication
+pc_subscriber_topic : /isdrc_driver_right/ScanCloudRaw    #~ choose raw data subscriber topic
+#pc_subscriber_topic : /isdrc_driver_left/ScanCloudRaw    #~ choose raw data subscriber topic
+pc_publisher_topic : /otsu_filter/filteredCloud     #~ choose filtered data publisher topic
+
+#~ Point cloud channel definition (channel 0 is reserved for intensity data)
+ch_angle : 1                #~ choose angle channel
+ch_range : 2                #~ choose range channel
+
+#~ Set mode for two radar sensors
+dual_mode : false

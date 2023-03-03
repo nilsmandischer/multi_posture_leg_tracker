@@ -1,0 +1,24 @@
+detected_clusters_topic: /laser_detected_clusters
+tracked_people_topic: /laser_tracked_people
+tracked_people_marker_topic: /laser_tracked_people_marker
+
+fixed_frame: summit_xl_odom
+#fixed_frame: summit_xl_front_laser_link
+#fixed_frame: summit_xl_base_link
+#publish_people_frame: summit_xl_front_laser_link
+#publish_people_frame: summit_xl_base_link
+publish_people_frame: summit_xl_front_laser_link
+
+scan_frequency: 15
+
+use_scan_header_stamp_for_tfs: false
+publish_occluded: false # whether publish occluded tracks
+publish_candidates: false # whether publish tentative tracks
+dynamic_mode: true # moving robot: true
+
+dist_travelled_together_to_initiate_leg_pair: 0.5
+confidence_threshold_to_maintain_track: 0.3
+max_std: 0.9  # standard deviation to delete tracks
+max_leg_pairing_dist: 0.8 # max distance between a pair of legs
+confidence_percentile: 0.9
+

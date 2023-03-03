@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+    <name>rc_tracking_libs</name>
+    <version>1.0.0</version>
+    <description>Common library for tracking tasks with Kalman Filters in Robot Companion</description>
+
+    <maintainer email="mandischer@igmr.rwth-aachen.de">Nils Mandischer</maintainer>
+    <maintainer email="maximilian.hilger@rwth-aachen.de">Maximilian Hilger</maintainer>
+
+    <author email="ina.koop@rwth-aachen.de">Ina Koop</author>
+
+    <license>TODO</license>
+    
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <build_depend>roscpp</build_depend>
+    <build_depend>pcl_ros</build_depend>
+    <build_depend>pcl</build_depend>
+
+    <run_depend>roscpp</run_depend>
+    <run_depend>pcl_ros</run_depend>
+    <run_depend>pcl</run_depend>
+
+    <export>
+
+    </export>
+</package>

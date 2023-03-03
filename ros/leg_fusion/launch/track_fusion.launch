@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="param_file" default="$(find leg_fusion)/config/track_fusion.yaml" />
+    <rosparam command="load" file="$(arg param_file)"/>
+
+    <!--<arg name="target_frame" default="/summit_xl_base_link" />-->
+    <arg name="target_frame" default="summit_xl_front_laser_link" />
+
+    <arg name="marker" default="/people_tracker/marker_array" />
+    <arg name="tracked_person_array" default="/fused_tracked_people" />
+    
+<!--    <node pkg="rviz" type="rviz" name="rviz_people_tracker" args="-d $(find bayes_people_tracker)/config/rviz/track_fusion.rviz"/>-->
+
+    <node pkg="leg_fusion" type="leg_fusion" name="leg_fusion" output="screen" respawn="false">
+        <param name="target_frame" value="$(arg target_frame)" type="string"/>
+        <param name="marker" value="$(arg marker)" type="string"/>
+        <param name="tracked_person_array" value="$(arg tracked_person_array)" type="string"/>
+        <param name="publish_occluded" value="false" type="bool"/>
+    </node>
+
+</launch> 

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <!-- run detector -->
+  <node pkg="laser_squat_leg_tracker" type="human_detector_node" name="laser_human_detector" output="screen" >
+    <rosparam command="load" file="$(find laser_squat_leg_tracker)/config/human_detector_config.yaml" subst_value="true" />
+  </node>
+
+  <!-- run tracker -->
+  <node pkg="laser_squat_leg_tracker" type="human_tracker_without_map_node" name="laser_human_tracker" output="screen" >
+    <rosparam command="load" file="$(find laser_squat_leg_tracker)/config/human_tracker_config.yaml" />
+  </node>
+
+  <!-- run rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find laser_squat_leg_tracker)/rosbags/demos/rviz/laser_human_tracker.rviz"/>
+
+</launch>

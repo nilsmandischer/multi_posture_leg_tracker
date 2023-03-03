@@ -1,0 +1,22 @@
+scan_topic: /summit_xl/front_laser/scan
+detected_clusters_topic: /laser_detected_clusters
+detected_clusters_marker_topic: /laser_detected_clusters_marker
+
+fixed_frame: summit_xl_odom
+#fixed_frame: summit_xl_front_laser_link
+#fixed_frame: summit_xl_base_link
+
+classifier_type: opencv_random_forest
+model_file: $(find laser_squat_leg_tracker)/config/trained_model/TrainBoth/opencv_random_forest_3.yaml
+
+publish_background: true # whether publish non-human clusters (always true)
+visualize_contour: false # whether visualize cluster contour in rviz
+use_scan_header_stamp_for_tfs: false
+
+cluster_dist_euclid: 0.2 # Euclidian distance threshold for clustering
+min_points_per_cluster: 3 # minimum number of points in the cluster
+
+detection_threshold: -1.0 # publish clusters with confidence level above the threshold
+max_detected_clusters: -1 # maximum number of published clusters
+max_detect_distance: 100 # maximum distance of published clusters to sensor
+

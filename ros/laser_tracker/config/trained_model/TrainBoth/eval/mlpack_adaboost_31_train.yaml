@@ -1,0 +1,30 @@
+%YAML:1.0
+---
+Class Negative:
+   Precision: 9.6503418684005737e-01
+   Recall: 9.5638388395309448e-01
+   F1 Score: 9.6068954467773438e-01
+Class Leg:
+   Precision: 9.4991737604141235e-01
+   Recall: 9.6276730298995972e-01
+   F1 Score: 9.5629918575286865e-01
+Class Squat:
+   Precision: 9.7178393602371216e-01
+   Recall: 9.6765249967575073e-01
+   F1 Score: 9.6971380710601807e-01
+confusion matrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: f
+   data: [ 8749., 324., 75., 212., 7473., 77., 105., 70., 5235. ]
+confusion matrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: f
+   data: [ 9.56383944e-01, 3.54175791e-02, 8.19851365e-03,
+       2.73125488e-02, 9.62767363e-01, 9.92012396e-03, 1.94085017e-02,
+       1.29390014e-02, 9.67652500e-01 ]
+Macro Precision: 9.6224516630172729e-01
+Macro Recall: 9.6226787567138672e-01
+Macro F1 Score: 9.6223419904708862e-01
+Accuracy: 9.6133512258529663e-01

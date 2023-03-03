@@ -1,0 +1,18 @@
+scan_topic: /summit_xl/front_laser/scan
+
+fixed_frame: summit_xl_odom
+#fixed_frame: summit_xl_front_laser_link
+#fixed_frame: summit_xl_base_link
+
+local_map_topic: /laser_local_map
+local_map_resolution: 0.05
+local_map_cells_per_side: 400
+invalid_measurements_are_free_space: false
+unseen_is_freespace: true
+shift_threshold: 1.0
+reliable_inf_range: 5.0
+
+use_scan_header_stamp_for_tfs: false
+cluster_dist_euclid: 0.2
+min_points_per_cluster: 3
+

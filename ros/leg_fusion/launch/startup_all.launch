@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<launch>
+
+<!--laser human tracker-->
+<node pkg="laser_squat_leg_tracker" type="human_detector_node" name="laser_human_detector" output="screen" >
+  <rosparam command="load" file="$(find laser_squat_leg_tracker)/config/human_detector_config.yaml" subst_value="true" />
+</node>
+<node pkg="laser_squat_leg_tracker" type="human_tracker_node" name="laser_human_tracker" output="screen" >
+  <rosparam command="load" file="$(find laser_squat_leg_tracker)/config/human_tracker_config.yaml" />
+</node>
+<node pkg="laser_squat_leg_tracker" type="local_occupancy_grid_mapping" name="local_occupancy_grid_mapping" output="screen" >
+<rosparam command="load" file="$(find laser_squat_leg_tracker)/config/local_occupancy_grid_mapping.yaml" />
+</node>
+
+<!--radar human tracker-->
+<node pkg="radar_squat_leg_tracker" type="otsu_filter" name="otsu_filter" output="screen">
+  <rosparam command="load" file="$(find radar_squat_leg_tracker)/config/otsu_filter_config.yaml"/>
+</node>
+<node pkg="radar_squat_leg_tracker" type="human_detector_node" name="radar_human_detector" output="screen">
+  <rosparam command="load" file="$(find radar_squat_leg_tracker)/config/human_detector_config.yaml" subst_value="true" />
+</node>
+<node pkg="radar_squat_leg_tracker" type="human_tracker_node" name="radar_human_tracker" output="screen" >
+  <rosparam command="load" file="$(find radar_squat_leg_tracker)/config/human_tracker_config.yaml"/>
+</node>
+
+
+<arg name="param_file" default="$(find leg_fusion)/config/track_fusion.yaml" />
+<rosparam command="load" file="$(arg param_file)"/>
+
+<!--arg name="target_frame" default="summit_xl_front_laser_link" /-->
+<arg name="target_frame" default="summit_xl_odom" />
+
+<arg name="marker" default="/people_tracker/marker_array" />
+<arg name="tracked_person_array" default="/people_tracked" />
+
+<!--node pkg="rviz" type="rviz" name="rviz_people_tracker" args="-d $(find leg_fusion)/config/rviz/track_fusion.rviz"/-->
+
+<node pkg="leg_fusion" type="leg_fusion" name="leg_fusion" output="screen" respawn="false">
+    <param name="target_frame" value="$(arg target_frame)" type="string"/>
+    <param name="marker" value="$(arg marker)" type="string"/>
+    <param name="tracked_person_array" value="$(arg tracked_person_array)" type="string"/>
+    <param name="publish_occluded" value="false" type="bool"/>
+</node>
+
+</launch> 

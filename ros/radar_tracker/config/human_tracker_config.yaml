@@ -1,0 +1,29 @@
+detected_clusters_topic: /radar_detected_clusters
+tracked_people_topic: /radar_tracked_people
+tracked_people_marker_topic: /radar_tracked_people_marker
+
+#fixed_frame: radar_right
+fixed_frame: summit_xl_odom
+#fixed_frame: summit_xl_base_link 
+#fixed_frame: summit_xl_front_laser_link
+#publish_people_frame: radar_right
+#publish_people_frame: summit_xl_base_link # summit_xl_odom
+publish_people_frame: summit_xl_front_laser_link
+
+scan_frequency: 5
+
+use_scan_header_stamp_for_tfs: false
+publish_occluded: false # whether publish occluded tracks
+distance_metric: mahalanobis  # choose: mahalanobis or euclidian
+matching_algorithm: greedy  # choose: GNN, greedy, NN or MHT
+dynamic_mode: true  # choose: true or false
+
+confidence_threshold_to_maintain_track: 0.3
+
+std_obs: 0.14
+para_p: 0.2
+para_pos_q: 5.6
+para_vel_q: 1.22
+
+
+
