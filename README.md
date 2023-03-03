@@ -12,6 +12,7 @@ The multi posture leg tracker is a software for people tracking with a combinati
 - **bayestracking**: a multi-sensor multi-target tracking library developed by Bellotto et al. [[10.5281/zenodo.15825](https://doi.org/10.5281/zenodo.15825)]. 
 - **tracking_msgs**: detection and tracking messages used by three modules.
 
+The data sets required for training and testing are available at [[Zenodo](https://doi.org/10.5281/zenodo.7665007)].
 
 ## Setup
 
