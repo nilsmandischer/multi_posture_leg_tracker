@@ -1,44 +1,61 @@
 <?xml version="1.0" ?>
 
 <launch>
-	
-  <arg name="save_file_path" value="$(find radar_human_tracker)/config/trained_model/TrainBoth/" />
 
-<arg name="leg_bag_1" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/leg/2021_06/0_0.bag" /><!--indoor-->
-<arg name="leg_bag_2" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/leg/2021_06/0_1.bag" /><!--outdoor-->
-<arg name="leg_bag_3" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/leg/2021_06/2_0.bag" /><!--indoor-->
-<arg name="leg_bag_4" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/leg/2021_06/3_0.bag" /><!--outdoor-->
-<arg name="leg_bag_5" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/leg/2021_06/4_0.bag" /><!--outdoor-->
-<arg name="leg_bag_6" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/leg/2021_06/0_1_0.bag" /><!--indoor_test-->
-<arg name="leg_bag_7" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/leg/2021_06/0_1_1.bag" /><!--outdoor_test-->
+  <arg name="base_filepath" value="/catkin_ws/data" />
+	
+  <arg name="save_file_path" value="$(find radar_squat_leg_tracker)/config/trained_model/TrainBothCustom/" />
+
+<arg name="leg_bag_1" value="/0_training_data/1_radar/1_standing/0_lab/0110_00.bag" /><!--indoor-->
+<arg name="leg_bag_2" value="/0_training_data/1_radar/1_standing/0_lab/0110_01.bag" /><!--indoor-->
+<arg name="leg_bag_3" value="/0_training_data/1_radar/1_standing/0_lab/0110_02.bag" /><!--indoor-->
+<arg name="leg_bag_4" value="/0_training_data/1_radar/1_standing/0_lab/0110_03.bag" /><!--indoor-->
+<arg name="leg_bag_5" value="/0_training_data/1_radar/1_standing/0_lab/0110_04.bag" /><!--indoor-->
+<arg name="leg_bag_6" value="/0_training_data/1_radar/1_standing/0_lab/0110_05.bag" /><!--indoor-->
+<arg name="leg_bag_7" value="/0_training_data/1_radar/1_standing/0_lab/0110_06.bag" /><!--indoor-->
+<arg name="leg_bag_8" value="/0_training_data/1_radar/1_standing/0_lab/0110_07.bag" /><!--indoor-->
+<arg name="leg_bag_9" value="/0_training_data/1_radar/1_standing/0_lab/0110_08.bag" /><!--indoor-->
+<arg name="leg_bag_10" value="/0_training_data/1_radar/1_standing/0_lab/0110_09.bag" /><!--indoor-->
+<arg name="leg_bag_11" value="/0_training_data/1_radar/1_standing/0_lab/0110_10.bag" /><!--indoor-->
+<arg name="leg_bag_12" value="/0_training_data/1_radar/1_standing/0_lab/0110_11.bag" /><!--indoor-->
+<arg name="leg_bag_13" value="/0_training_data/1_radar/1_standing/1_buildings/0111_00.bag" /><!--outdoor-->
+<arg name="leg_bag_14" value="/0_training_data/1_radar/1_standing/1_buildings/0111_01.bag" /><!--outdoor-->
+<arg name="leg_bag_15" value="/0_training_data/1_radar/1_standing/1_buildings/0111_02.bag" /><!--outdoor-->
+<arg name="leg_bag_16" value="/0_training_data/1_radar/1_standing/1_buildings/0111_03.bag" /><!--outdoor-->
 <arg name="leg_scan_topic" value="/training_scan" />
 <arg name="leg_cluster_topic" value="/leg_cluster_positions" />
 
-<arg name="squat_bag_1" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_06/0_0.bag" /><!--indoor-->
-<arg name="squat_bag_2" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_06/0_1.bag" /><!--outdoor-->
-<arg name="squat_bag_3" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_06/2_0.bag" /><!--indoor-->
-<arg name="squat_bag_4" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_06/3_0.bag" /><!--outdoor-->
-<arg name="squat_bag_5" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_06/4_0.bag" /><!--outdoor-->
-<arg name="squat_bag_6" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_04/0_0.bag" /><!--indoor-->
-<arg name="squat_bag_7" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_04/0_1.bag" /><!--indoor-->
-<arg name="squat_bag_8" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_06/0_1_0.bag" /><!--indoor_test-->
-<arg name="squat_bag_9" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/squat/2021_06/0_1_1.bag" /><!--outdoor_test-->
+<arg name="squat_bag_1" value="/0_training_data/1_radar/2_squatting/0_lab/0120_00.bag" /><!--indoor-->
+<arg name="squat_bag_2" value="/0_training_data/1_radar/2_squatting/0_lab/0120_01.bag" /><!--indoor-->
+<arg name="squat_bag_3" value="/0_training_data/1_radar/2_squatting/0_lab/0120_02.bag" /><!--indoor-->
+<arg name="squat_bag_4" value="/0_training_data/1_radar/2_squatting/0_lab/0120_03.bag" /><!--indoor-->
+<arg name="squat_bag_5" value="/0_training_data/1_radar/2_squatting/0_lab/0120_04.bag" /><!--indoor-->
+<arg name="squat_bag_6" value="/0_training_data/1_radar/2_squatting/0_lab/0120_05.bag" /><!--indoor-->
+<arg name="squat_bag_7" value="/0_training_data/1_radar/2_squatting/0_lab/0120_06.bag" /><!--indoor-->
+<arg name="squat_bag_8" value="/0_training_data/1_radar/2_squatting/0_lab/0120_07.bag" /><!--indoor-->
+<arg name="squat_bag_9" value="/0_training_data/1_radar/2_squatting/0_lab/0120_08.bag" /><!--indoor-->
+<arg name="squat_bag_10" value="/0_training_data/1_radar/2_squatting/0_lab/0120_09.bag" /><!--indoor-->
+<arg name="squat_bag_11" value="/0_training_data/1_radar/2_squatting/0_lab/0120_10.bag" /><!--indoor-->
+<arg name="squat_bag_12" value="/0_training_data/1_radar/2_squatting/1_buildings/0121_00.bag" /><!--outdoor-->
+<arg name="squat_bag_13" value="/0_training_data/1_radar/2_squatting/1_buildings/0121_01.bag" /><!--outdoor-->
+<arg name="squat_bag_14" value="/0_training_data/1_radar/2_squatting/1_buildings/0121_02.bag" /><!--outdoor-->
+<arg name="squat_bag_15" value="/0_training_data/1_radar/2_squatting/1_buildings/0121_03.bag" /><!--outdoor-->
 <arg name="squat_scan_topic" value="/training_scan" />
 <arg name="squat_cluster_topic" value="/squat_cluster_positions" />
 
-<arg name="neg_bag_1" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/background/lab_0.bag" />
-<arg name="neg_bag_2" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/background/lab_1.bag" />
-<arg name="neg_bag_3" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/background/lab_2.bag" />
-<arg name="neg_bag_4" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/background/lab_3.bag" />
-<arg name="neg_bag_5" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/background/pavement_0.bag" />
-<arg name="neg_bag_6" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/radar/background/pavement_1.bag" />
+<arg name="neg_bag_1" value="/0_training_data/1_radar/0_background/0_lab/0100_00.bag" /><!--indoor-->
+<arg name="neg_bag_2" value="/0_training_data/1_radar/0_background/0_lab/0100_01.bag" /><!--indoor-->
+<arg name="neg_bag_3" value="/0_training_data/1_radar/0_background/0_lab/0100_02.bag" /><!--indoor-->
+<arg name="neg_bag_4" value="/0_training_data/1_radar/0_background/0_lab/0100_03.bag" /><!--indoor-->
+<arg name="neg_bag_5" value="/0_training_data/1_radar/0_background/1_buildings/0101_00.bag" /><!--outdoor-->
+<arg name="neg_bag_6" value="/0_training_data/1_radar/0_background/1_buildings/0101_01.bag" /><!--outdoor-->
 <arg name="neg_scan_topic" value="/training_scan" />
 <arg name="neg_cluster_topic" value="/bkgd_cluster_positions" />
 
   <param name="mode" value="0" />   <!--0 for train; 1 for test-->
   <param name="classifier_type" value="opencv_random_forest" />
   <param name="validation_data_ratio" value="0.0" />
-  <param name="model_file" value="$(find radar_human_tracker)/config/trained_model/TrainBoth/opencv_random_forest_2.yaml" /> <!--only for test-->
+  <param name="model_file" value="$(find radar_squat_leg_tracker)/config/trained_model/TrainBoth/opencv_random_forest_2.yaml" /> <!--only for test-->
   <param name="feature_set_size" value="3" />
   <param name="undersample_negative_factor" value="20"/>
 
@@ -47,35 +64,50 @@
   <param name="/use_sim_time" value="false"/>
   <param name="range_min" value="0.5"/>
   <param name="range_max" value="8"/>
-  <node pkg="radar_human_tracker" type="train_classifier" name="radar_train_classifier" required="true"
+  <node pkg="radar_squat_leg_tracker" type="train_classifier" name="radar_train_classifier" required="true"
         args="
-        --leg $(arg leg_bag_1) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --leg $(arg leg_bag_2) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --leg $(arg leg_bag_3) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --leg $(arg leg_bag_4) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --leg $(arg leg_bag_5) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --test_leg $(arg leg_bag_6) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --test_leg $(arg leg_bag_7) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_1) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_2) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_3) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_4) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_5) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_6) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_7) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_8) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_9) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_10) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_11) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_13) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_14) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_15) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --test_leg $(arg base_filepath)$(arg leg_bag_12) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --test_leg $(arg base_filepath)$(arg leg_bag_16) $(arg leg_scan_topic) $(arg leg_cluster_topic)
 
-        --squat $(arg squat_bag_1) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_2) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_3) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_4) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_5) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_6) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_7) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --test_squat $(arg squat_bag_8) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --test_squat $(arg squat_bag_9) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_1) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_2) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_3) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_4) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_5) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_6) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_7) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_8) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_9) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_10) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_12) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_13) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_14) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --test_squat $(arg base_filepath)$(arg squat_bag_11) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --test_squat $(arg base_filepath)$(arg squat_bag_15) $(arg squat_scan_topic) $(arg squat_cluster_topic)
 
-        --neg_annotated $(arg neg_bag_2) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --neg_annotated $(arg neg_bag_4) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --neg_annotated $(arg neg_bag_6) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --test_neg_annotated $(arg neg_bag_1) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --test_neg_annotated $(arg neg_bag_5) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --neg_annotated $(arg base_filepath)$(arg neg_bag_2) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --neg_annotated $(arg base_filepath)$(arg neg_bag_4) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --neg_annotated $(arg base_filepath)$(arg neg_bag_6) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --test_neg_annotated $(arg base_filepath)$(arg neg_bag_1) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --test_neg_annotated $(arg base_filepath)$(arg neg_bag_5) $(arg neg_scan_topic) $(arg neg_cluster_topic)
 
               --save_file_path $(arg save_file_path)"
               output="screen">
-    <rosparam file="$(find radar_human_tracker)/config/otsu_filter_config.yaml" command="load"/>
+    <rosparam file="$(find radar_squat_leg_tracker)/config/otsu_filter_config.yaml" command="load"/>
   </node>
 </launch>
 

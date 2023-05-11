@@ -34,7 +34,11 @@ roslaunch laser_squat_leg_tracker laser_human_tracker.launch
 
 ## Train classifier
 
-Run launch file in laser_squat_leg_tracker/launch/training folder. Specify *classifier_type* (*opencv_random_forest, opencv_adaboost, mlpack_random_forest, mlpack_adaboost*) and *feature_set_size* (see features defined in laser and radar module for details). After training, the learned model and evaluation results will be saved in the pre-defined path.
+Run launch file in laser_squat_leg_tracker/launch/training folder:
+   ```bash
+   roslaunch laser_squat_leg_tracker train_both_environments.launch # annotate radar cluster samples
+   ``` 
+Specify *classifier_type* (*opencv_random_forest, opencv_adaboost, mlpack_random_forest, mlpack_adaboost*) and *feature_set_size* (see features defined in laser and radar module for details). You also have to specify the filepath of the training data.After training, the learned model and evaluation results will be saved in the pre-defined path.
 
 ## Annotate detection ground truth
 

@@ -2,76 +2,105 @@
 
 <!-- Not shown, but you can also include test bags to get a testing error!-->
 <launch>
-	
-  <arg name="save_file_path" value="$(find laser_human_tracker)/config/trained_model/TrainBoth/" />
 
-  <arg name="leg_bag_1" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/leg/2021_06/0_0.bag" />
-  <arg name="leg_bag_2" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/leg/2021_06/2_0.bag" />
-  <arg name="leg_bag_3" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/leg/2021_06/3_0.bag" />
-  <arg name="leg_bag_4" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/leg/2021_06/4_0.bag" />
-  <arg name="leg_bag_5" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/leg/2021_06/0_1_0_part-1.bag" />
-  <arg name="leg_bag_6" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/leg/2021_06/0_1_1_part-1.bag" />
+  <arg name="base_filepath" value="/catkin_ws/data"/>
+	
+  <arg name="save_file_path" value="$(find laser_squat_leg_tracker)/config/trained_model/TrainBothCustom/" />
+
+  <arg name="leg_bag_1" value="/0_training_data/0_laser/1_standing/0_lab/0010_00.bag" />
+  <arg name="leg_bag_2" value="/0_training_data/0_laser/1_standing/0_lab/0010_01.bag" />
+  <arg name="leg_bag_3" value="/0_training_data/0_laser/1_standing/0_lab/0010_02.bag" />
+  <arg name="leg_bag_4" value="/0_training_data/0_laser/1_standing/0_lab/0010_03.bag" />
+  <arg name="leg_bag_5" value="/0_training_data/0_laser/1_standing/0_lab/0010_04.bag" />
+  <arg name="leg_bag_6" value="/0_training_data/0_laser/1_standing/0_lab/0010_05.bag" />
+  <arg name="leg_bag_7" value="/0_training_data/0_laser/1_standing/0_lab/0010_06.bag" />
+  <arg name="leg_bag_8" value="/0_training_data/0_laser/1_standing/0_lab/0010_07.bag" />
+  <arg name="leg_bag_9" value="/0_training_data/0_laser/1_standing/0_lab/0010_08.bag" />
+  <arg name="leg_bag_10" value="/0_training_data/0_laser/1_standing/0_lab/0010_09.bag" />
+  <arg name="leg_bag_11" value="/0_training_data/0_laser/1_standing/0_lab/0010_10.bag" />
+  <arg name="leg_bag_12" value="/0_training_data/0_laser/1_standing/0_lab/0010_11.bag" />
+
+  <arg name="leg_bag_13" value="/0_training_data/0_laser/1_standing/1_builings/0011_00.bag" />
+  <arg name="leg_bag_14" value="/0_training_data/0_laser/1_standing/1_builings/0011_01.bag" />
+  <arg name="leg_bag_15" value="/0_training_data/0_laser/1_standing/1_builings/0011_02.bag" />
+
   <arg name="leg_scan_topic" value="/training_scan" />
   <arg name="leg_cluster_topic" value="/leg_cluster_positions" />
 
-  <arg name="squat_bag_1" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_06/0_0.bag" />
-  <arg name="squat_bag_2" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_06/2_0.bag" />
-  <arg name="squat_bag_3" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_06/3_0.bag" />
-  <arg name="squat_bag_4" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_06/3_1.bag" />
-  <arg name="squat_bag_5" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_06/4_0.bag" />
-  <arg name="squat_bag_6" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_06/0_1.bag" />
-  <arg name="squat_bag_7" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_04/0_0.bag" />
-  <arg name="squat_bag_8" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_04/0_1.bag" />
-  <arg name="squat_bag_9" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_06/0_1_0.bag" />
-  <arg name="squat_bag_10" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/squat/2021_06/0_1_1.bag" />
+  <arg name="squat_bag_1" value="/0_training_data/0_laser/2_squatting/0_lab/0020_00.bag" />
+  <arg name="squat_bag_2" value="/0_training_data/0_laser/2_squatting/0_lab/0020_01.bag" />
+  <arg name="squat_bag_3" value="/0_training_data/0_laser/2_squatting/0_lab/0020_02.bag" />
+  <arg name="squat_bag_4" value="/0_training_data/0_laser/2_squatting/0_lab/0020_03.bag" />
+  <arg name="squat_bag_5" value="/0_training_data/0_laser/2_squatting/0_lab/0020_04.bag" />
+  <arg name="squat_bag_6" value="/0_training_data/0_laser/2_squatting/0_lab/0020_05.bag" />
+  <arg name="squat_bag_7" value="/0_training_data/0_laser/2_squatting/0_lab/0020_06.bag" />
+  <arg name="squat_bag_8" value="/0_training_data/0_laser/2_squatting/0_lab/0020_07.bag" />
+  <arg name="squat_bag_9" value="/0_training_data/0_laser/2_squatting/0_lab/0020_08.bag" />
+  <arg name="squat_bag_10" value="/0_training_data/0_laser/2_squatting/0_lab/0020_09.bag" />
+  <arg name="squat_bag_11" value="/0_training_data/0_laser/2_squatting/0_lab/0020_10.bag" />
+
+  <arg name="squat_bag_12" value="/0_training_data/0_laser/2_squatting/1_buildings/0021_00.bag" />
+  <arg name="squat_bag_13" value="/0_training_data/0_laser/2_squatting/1_buildings/0021_01.bag" />
+  <arg name="squat_bag_14" value="/0_training_data/0_laser/2_squatting/1_buildings/0021_02.bag" />
+  <arg name="squat_bag_15" value="/0_training_data/0_laser/2_squatting/1_buildings/0021_03.bag" />
+  <arg name="squat_bag_16" value="/0_training_data/0_laser/2_squatting/1_buildings/0021_04.bag" />
+
   <arg name="squat_scan_topic" value="/training_scan" />
   <arg name="squat_cluster_topic" value="/squat_cluster_positions" />
+  <arg name="neg_bag_1" value="/0_training_data/0_laser/0_background/0_lab/0000_00.bag" />
+  <arg name="neg_bag_2" value="/0_training_data/0_laser/0_background/0_lab/0000_01.bag" />
+  <arg name="neg_bag_3" value="/0_training_data/0_laser/0_background/0_lab/0000_02.bag" />
+  <arg name="neg_bag_4" value="/0_training_data/0_laser/0_background/0_lab/0000_03.bag" />
+  <arg name="neg_bag_5" value="/0_training_data/0_laser/0_background/0_lab/0000_04.bag" />
 
-  <arg name="neg_bag_1" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/background/lab_0.bag" />
-  <arg name="neg_bag_2" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/background/lab_1.bag" />
-  <arg name="neg_bag_3" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/background/lab_2.bag" />
-  <arg name="neg_bag_4" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/background/pavement_0.bag" />
-  <arg name="neg_bag_5" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/background/lab_3.bag" />
-  <arg name="neg_bag_6" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/background/lab_4.bag" />
-  <arg name="neg_bag_7" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/background/pavement_1.bag" />
-  <arg name="neg_bag_8" value="/media/ruikun/HouRuikun/MaterThesis/rosbags/annotated_training_data/laser/background/pavement_2.bag" />
+  <arg name="neg_bag_6" value="/0_training_data/0_laser/0_background/1_buildings/0001_00.bag" />
+  <arg name="neg_bag_7" value="/0_training_data/0_laser/0_background/1_buildings/0001_01.bag" />
+  <arg name="neg_bag_8" value="/0_training_data/0_laser/0_background/1_buildings/0001_02.bag" />
   <arg name="neg_scan_topic" value="/training_scan" />
   <arg name="neg_cluster_topic" value="/bkgd_cluster_positions" />
 
   <param name="mode" value="0" />   <!--0 for train; 1 for test-->
   <param name="classifier_type" value="opencv_random_forest" />
-  <param name="model_file" value="$(find laser_human_tracker)/config/trained_model/TrainBoth/opencv_random_forest_0.yaml" /> <!--only for test-->
+  <param name="model_file" value="$(find laser_squat_leg_tracker)/config/trained_model/TrainBoth/opencv_random_forest_0.yaml" /> <!--only for test-->
   <param name="feature_set_size" value="3" /> <!--feature_set_size = 0 or 1 or 2 or 3 or 4, see cluster_features.h-->
   <param name="validation_data_ratio" value="0.0" />
   <param name="undersample_negative_factor" value="15"/>
   <param name="cluster_dist_euclid" value="0.2" />
-  <node pkg="laser_human_tracker" type="train_classifier_node" name="laser_train_classifier_node" required="true"
+  <node pkg="laser_squat_leg_tracker" type="train_classifier_node" name="laser_train_classifier_node" required="true"
         args="
-        --leg $(arg leg_bag_1) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --leg $(arg leg_bag_2) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --leg $(arg leg_bag_3) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --leg $(arg leg_bag_4) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --test_leg $(arg leg_bag_5) $(arg leg_scan_topic) $(arg leg_cluster_topic)
-        --test_leg $(arg leg_bag_6) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_1) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_2) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_4) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_5) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_6) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_8) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_13) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --leg $(arg base_filepath)$(arg leg_bag_14) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --test_leg $(arg base_filepath)$(arg leg_bag_11) $(arg leg_scan_topic) $(arg leg_cluster_topic)
+        --test_leg $(arg base_filepath)$(arg leg_bag_15) $(arg leg_scan_topic) $(arg leg_cluster_topic)
 
-        --squat $(arg squat_bag_1) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_2) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_3) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_4) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_5) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_6) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_7) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --squat $(arg squat_bag_8) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --test_squat $(arg squat_bag_9) $(arg squat_scan_topic) $(arg squat_cluster_topic)
-        --test_squat $(arg squat_bag_10) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_1) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_2) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_4) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_6) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_8) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_9) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_12) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_13) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_14) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --squat $(arg base_filepath)$(arg squat_bag_15) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --test_squat $(arg base_filepath)$(arg squat_bag_10) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --test_squat $(arg base_filepath)$(arg squat_bag_11) $(arg squat_scan_topic) $(arg squat_cluster_topic)
+        --test_squat $(arg base_filepath)$(arg squat_bag_16) $(arg squat_scan_topic) $(arg squat_cluster_topic)
 
-        --neg_annotated $(arg neg_bag_1) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --neg_annotated $(arg neg_bag_3) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --neg_annotated $(arg neg_bag_3) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --neg_annotated $(arg neg_bag_4) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --test_neg_annotated $(arg neg_bag_6) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --test_neg_annotated $(arg neg_bag_7) $(arg neg_scan_topic) $(arg neg_cluster_topic)
-        --test_neg_annotated $(arg neg_bag_8) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --neg_annotated $(arg base_filepath)$(arg neg_bag_1) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --neg_annotated $(arg base_filepath)$(arg neg_bag_2) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --neg_annotated $(arg base_filepath)$(arg neg_bag_3) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --neg_annotated $(arg base_filepath)$(arg neg_bag_6) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --neg_annotated $(arg base_filepath)$(arg neg_bag_7) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --test_neg_annotated $(arg base_filepath)$(arg neg_bag_4) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --test_neg_annotated $(arg base_filepath)$(arg neg_bag_5) $(arg neg_scan_topic) $(arg neg_cluster_topic)
+        --test_neg_annotated $(arg base_filepath)$(arg neg_bag_8) $(arg neg_scan_topic) $(arg neg_cluster_topic)
 
         --save_file_path $(arg save_file_path)"
         output="screen"/>
