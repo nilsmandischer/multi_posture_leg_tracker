@@ -1,0 +1,10 @@
+<library path="lib/libsingle_point_publisher">
+  <class name="rviz_plugin_single_point_publisher/SinglePointPublisher"
+         type="rviz_plugin_single_point_publisher::SinglePointPublisher"
+         base_class_type="rviz::Tool">
+    <description>
+      Fork of the rviz::PointTool:
+      attended by keyboard publisher
+    </description>
+  </class>
+</library>

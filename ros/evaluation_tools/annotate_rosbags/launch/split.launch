@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<launch>
+  <!-- params -->
+  <param name="readbag_filename" value="/catkin_ws/data/0_training_data/1_radar/1_standing/1_buildings/0111_03.bag" />
+  <param name="split_interval" value="300"/>
+
+  <!-- run annotate_rosbags -->
+  <node pkg="annotate_rosbags" type="split_rosbag.py" name="split_rosbag" output="screen" required="true"/>
+
+</launch>
+

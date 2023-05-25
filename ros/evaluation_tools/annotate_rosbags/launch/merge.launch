@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<launch>
+  <!-- params -->
+  <param name="root_rosbag" value="/catkin_ws/data/0_training_data/1_radar/1_standing/1_buildings/0111_03.bag" />
+
+  <!-- run annotate_rosbags -->
+  <node pkg="annotate_rosbags" type="merge_rosbags.py" name="merge_rosbags" output="screen" required="true"/>
+
+</launch>
+

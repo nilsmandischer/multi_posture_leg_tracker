@@ -20,9 +20,9 @@
   <arg name="leg_bag_11" value="/0_training_data/0_laser/1_standing/0_lab/0010_10.bag" />
   <arg name="leg_bag_12" value="/0_training_data/0_laser/1_standing/0_lab/0010_11.bag" />
 
-  <arg name="leg_bag_13" value="/0_training_data/0_laser/1_standing/1_builings/0011_00.bag" />
-  <arg name="leg_bag_14" value="/0_training_data/0_laser/1_standing/1_builings/0011_01.bag" />
-  <arg name="leg_bag_15" value="/0_training_data/0_laser/1_standing/1_builings/0011_02.bag" />
+  <arg name="leg_bag_13" value="/0_training_data/0_laser/1_standing/1_buildings/0011_00.bag" />
+  <arg name="leg_bag_14" value="/0_training_data/0_laser/1_standing/1_buildings/0011_01.bag" />
+  <arg name="leg_bag_15" value="/0_training_data/0_laser/1_standing/1_buildings/0011_02.bag" />
 
   <arg name="leg_scan_topic" value="/training_scan" />
   <arg name="leg_cluster_topic" value="/leg_cluster_positions" />

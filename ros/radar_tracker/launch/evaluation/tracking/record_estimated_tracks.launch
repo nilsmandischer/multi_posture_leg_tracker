@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+<param name="radar_scan_topic" value="/isdrc_driver_right/ScanCloudRaw" />
+<param name="fixed_frame" value="summit_xl_front_laser_link" />
+
+<node pkg="radar_squat_leg_tracker" type="human_detector_node" name="radar_human_detector" output="screen">
+  <rosparam command="load" file="$(find radar_squat_leg_tracker)/config/human_detector_config.yaml" subst_value="true" />
+</node>
+
+<node pkg="radar_squat_leg_tracker" type="otsu_filter" name="otsu_filter" output="screen">
+  <rosparam command="load" file="$(find radar_squat_leg_tracker)/config/otsu_filter_config.yaml"/>
+</node>
+
+<!-- tracker -->
+<node pkg="radar_squat_leg_tracker" type="human_tracker_node" name="radar_human_tracker" output="screen" >
+  <rosparam command="load" file="$(find radar_squat_leg_tracker)/config/human_tracker_config.yaml"/>
+</node>
+
+
+<param name="readbag_filename" value="/catkin_ws/data/0_multiposes_annotated.bag"/>
+<param name="savebag_filename" value="/catkin_ws/data/0_multiposes_annotated_and_estimated.bag"/>
+<node pkg="annotate_rosbags" type="playback_and_record_tracked_radar.py" name="playback_and_record_tracked" output="screen" required="true"/>
+
+</launch>
+

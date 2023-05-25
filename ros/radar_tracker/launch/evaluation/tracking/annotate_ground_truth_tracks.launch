@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<launch>
+  <!-- params -->
+  <param name="readbag_filename" value="/catkin_ws/data/0_multiposes.bag" />
+  <param name="savebag_filename" value="/catkin_ws/data/0_multiposes_annotated.bag" />
+  <param name="laser_scan_topic" value="/summit_xl/front_laser/scan" />
+  <param name="radar_scan_topic" value="/isdrc_driver_right/ScanCloudRaw" />
+  <param name="image_topic" value="/summit_xl/front_rgbd_camera/rgb/image_rect_color" />
+  <param name="fixed_frame" value="summit_xl_front_laser_link" />
+
+  <!-- run rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find annotate_rosbags)/rviz/annotate_rosbags.rviz"/>
+
+  <!-- load a dummy map. Otherwise can't register clicked points in rviz -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find annotate_rosbags)/map/map.yaml"> 
+    <param name="frame_id" value="summit_xl_front_laser_link" />
+  </node>
+
+   <!-- run detect_leg_clusters to display valid clusters of sufficient size in the current frame (not to actually detect legs)-->
+  <node pkg="laser_squat_leg_tracker_tracker" type="human_detector_node" name="laser_human_detector" output="screen" >
+    <rosparam command="load" file="$(find laser_squat_leg_tracker)/config/human_detector_config.yaml" subst_value="true" />
+  </node>
+
+  <node pkg="radar_squat_leg_tracker" type="human_detector_node" name="radar_human_detector" output="screen">
+    <rosparam command="load" file="$(find radar_squat_leg_tracker)/config/human_detector_config.yaml" subst_value="true" />
+  </node>
+
+  <node pkg="radar_squat_leg_tracker" type="otsu_filter" name="otsu_filter" output="screen">
+    <rosparam command="load" file="$(find radar_squat_leg_tracker)/config/otsu_filter_config.yaml"/>
+  </node>
+  
+  <!-- run annotate_rosbags -->
+  <node pkg="annotate_rosbags" type="annotate_rosbags_track_radar.py" name="annotate_rosbags" output="screen" required="true"/>
+
+</launch>
+

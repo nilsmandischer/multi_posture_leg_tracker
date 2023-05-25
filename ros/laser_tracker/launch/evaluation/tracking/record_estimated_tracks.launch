@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+<param name="scan_topic" value="/summit_xl/front_laser/scan" />
+<param name="fixed_frame" value="summit_xl_front_laser_link" />
+
+<node pkg="laser_squat_leg_tracker" type="human_detector_node" name="laser_human_detector" output="screen" >
+  <rosparam command="load" file="$(find laser_squat_leg_tracker)/config/human_detector_config.yaml" subst_value="true" />
+</node>
+
+<!-- run tracker -->
+<node pkg="laser_squat_leg_tracker" type="human_tracker_node" name="laser_human_tracker" output="screen" >
+  <rosparam command="load" file="$(find laser_squat_leg_tracker)/config/human_tracker_config.yaml" />
+</node>
+
+<node pkg="laser_squat_leg_tracker" type="local_occupancy_grid_mapping" name="local_occupancy_grid_mapping" output="screen" >
+  <rosparam command="load" file="$(find laser_squat_leg_tracker)/config/local_occupancy_grid_mapping.yaml" />
+</node>
+
+<!-- run tracker without mapping -->
+<!--<node pkg="laser_human_tracker" type="human_tracker_without_map_node" name="laser_human_tracker" output="screen" >
+  <rosparam command="load" file="$(find laser_human_tracker)/config/human_tracker_config.yaml" />
+</node>-->
+
+<param name="readbag_filename" value="/catkin_ws/data/0_multiposes_annotated.bag"/>
+<param name="savebag_filename" value="/catkin_ws/data/0_multiposes_annotated_and_tracked.bag"/>
+<node pkg="annotate_rosbags" type="playback_and_record_tracked_laser.py" name="playback_and_record_tracked" output="screen" required="true"/>
+
+</launch>
+
