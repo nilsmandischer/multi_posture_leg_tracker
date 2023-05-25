@@ -9,10 +9,17 @@ The multi posture leg tracker is a software for people tracking with a combinati
 - **radar_tracker**: radar human tracking module, containing the detector, tracker and as well as classifier training nodes.
 - **tracking_libs**: libraries for the tracking algorithms. Contains kalman filter and classifier interface and implementations used by laser and radar detectors. Currently there are four classifier implementations: *opencv_random_forest, opencv_adaboost, mlpack_random_forest, mlpack_adaboost*.
 - **leg_fusion**: track fusion module, which takes laser and radar tracks as detection inputs and maintains a number of person tracks. It is based on the bayestracking library.
-- **bayestracking**: a multi-sensor multi-target tracking library developed by Bellotto et al. [[10.5281/zenodo.15825](https://doi.org/10.5281/zenodo.15825)]. 
+- **bayestracking**: a multi-sensor multi-target tracking library developed by Bellotto et al. [10.5281/zenodo.15825](https://doi.org/10.5281/zenodo.15825). 
 - **tracking_msgs**: detection and tracking messages used by three modules.
 
-The data sets required for training and testing are available at [[Zenodo](https://doi.org/10.5281/zenodo.7665007)].
+The data sets required for training and testing are available at [Zenodo](https://doi.org/10.5281/zenodo.7665007).
+
+This repository is related to following research article:
+Mandischer, N.; Hou, R.; Corves, B.:
+"Multiposture leg tracking for temporarily vision restricted environments based on fusion of laser and radar sensor data",
+Journal of Field Robotics, Wiley. DOI: [10.1002/rob.22195](https://doi.org/10.1002/rob.22195)
+
+We appreciate citation of the related research article.
 
 ## Setup
 
